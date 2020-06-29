@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+    echo 'usage: gifify <file.mov>'
+    exit 1
+fi
+
+Filename="$(echo $1 | cut -d '.' -f 1)"
+
+echo "$Filename"
+
+ffmpeg -i "$1"  -f gif "$Filename.gif"
+
