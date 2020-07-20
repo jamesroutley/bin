@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Script which you can pipe directories to, and it'll filter out directories
+# which don't exist
+
+# https://stackoverflow.com/a/7045517/4129860
+while read -r line
+do
+    [ -d "$line" ] && echo "$line"
+done < "${1:-/dev/stdin}"
